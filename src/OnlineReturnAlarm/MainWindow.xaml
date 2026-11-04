@@ -127,7 +127,7 @@
                     <StackPanel>
                         <TextBlock Text="ウィンドウ表示" Style="{StaticResource SectionTitle}"/>
                         <CheckBox x:Name="BringToFrontCheck" Content="復帰時にアプリを前面へ表示" IsChecked="True"/>
-                        <CheckBox x:Name="AlwaysOnTopCheck" Content="常に最前面に表示" IsChecked="True" Checked="AlwaysOnTop_Changed" Unchecked="AlwaysOnTop_Changed"/>
+                        <CheckBox x:Name="AlwaysOnTopCheck" Content="常に最前面に表示" IsChecked="False" Checked="AlwaysOnTop_Changed" Unchecked="AlwaysOnTop_Changed"/>
                         <CheckBox x:Name="FlashCheck" Content="復帰時に警告表示を点滅させる" IsChecked="True"/>
                         <TextBlock Text="Windowsの保護画面・ロック画面・UAC画面を突破することはできません。ほかのアプリ上への表示もWindowsのフォーカス制御に従います。"
                                    Foreground="#91A2B7" FontSize="11" TextWrapping="Wrap" Margin="0,8,0,0"/>
