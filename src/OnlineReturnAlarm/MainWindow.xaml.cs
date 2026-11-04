@@ -104,6 +104,17 @@ public partial class MainWindow : Window
         StartAlarm(isTest: true);
     }
 
+    private void StopAlarm_Click(object sender, RoutedEventArgs e)
+    {
+        StopAlarm();
+    }
+
+    private void RaiseVolume_Changed(object sender, RoutedEventArgs e)
+    {
+        if (VolumeSlider is not null)
+            VolumeSlider.IsEnabled = RaiseVolumeCheck.IsChecked == true;
+    }
+
     private async Task MonitorLoopAsync(CancellationToken cancellationToken)
     {
         using var timer = new PeriodicTimer(TimeSpan.FromSeconds(5));
@@ -282,6 +293,7 @@ public partial class MainWindow : Window
             StopAlarm();
 
         _alarmActive = true;
+        StopAlarmButton.IsEnabled = true;
         AlertHeadline.Text = isTest ? "アラームテスト中" : "接続復帰を検知！";
         AlertDescription.Text = isTest
             ? "テスト音と警告表示を確認できます。"
@@ -326,6 +338,8 @@ public partial class MainWindow : Window
     private void StopAlarm()
     {
         _alarmActive = false;
+        if (StopAlarmButton is not null)
+            StopAlarmButton.IsEnabled = false;
         _flashTimer?.Stop();
         _flashTimer = null;
 
