@@ -83,6 +83,7 @@
                             <Button x:Name="StartButton" Style="{StaticResource ActionButton}" Content="監視を開始" Click="StartMonitoring_Click"/>
                             <Button x:Name="StopButton" Style="{StaticResource QuietButton}" Content="監視を停止" Click="StopMonitoring_Click" IsEnabled="False"/>
                             <Button Style="{StaticResource QuietButton}" Content="アラームをテスト" Click="TestAlarm_Click"/>
+                            <Button Style="{StaticResource QuietButton}" x:Name="StopAlarmButton" Content="アラーム停止" Click="StopAlarm_Click" IsEnabled="False"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -110,13 +111,13 @@
                     <StackPanel>
                         <TextBlock Text="音量・アラーム" Style="{StaticResource SectionTitle}"/>
                         <CheckBox x:Name="SoundCheck" Content="接続復帰時にアラーム音を再生" IsChecked="True"/>
-                        <CheckBox x:Name="RaiseVolumeCheck" Content="Windowsのマスター音量を変更する（明示的に有効化）" IsChecked="False"/>
+                        <CheckBox x:Name="RaiseVolumeCheck" Content="Windowsのマスター音量を変更する（明示的に有効化）" IsChecked="False" Checked="RaiseVolume_Changed" Unchecked="RaiseVolume_Changed"/>
                         <DockPanel Margin="0,3,0,0">
                             <TextBlock Text="復帰時の音量" Foreground="#A9B8CA" FontSize="12" DockPanel.Dock="Left"/>
                             <TextBlock x:Name="VolumePercentLabel" Text="70%" Foreground="#FFFFFF" FontWeight="Bold" FontSize="12" DockPanel.Dock="Right"/>
                         </DockPanel>
                         <Slider x:Name="VolumeSlider" Minimum="30" Maximum="100" Value="70" TickFrequency="10"
-                                IsSnapToTickEnabled="False" Margin="0,8,0,5" ValueChanged="VolumeSlider_ValueChanged"/>
+                                IsSnapToTickEnabled="False" Margin="0,8,0,5" IsEnabled="False" ValueChanged="VolumeSlider_ValueChanged"/>
                         <TextBlock Text="音量100%は聴覚に危険な場合があります。初期状態では音量変更は無効です。音量変更を有効にした場合も、アラーム停止時に変更前の音量へ戻します。"
                                    Foreground="#D8B17A" FontSize="11" TextWrapping="Wrap" Margin="0,8,0,0"/>
                     </StackPanel>
