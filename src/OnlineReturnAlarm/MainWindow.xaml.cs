@@ -608,7 +608,7 @@ public partial class MainWindow : Window
         public bool RaiseWindowsVolume { get; set; } = false;
         public double TargetVolume { get; set; } = 70;
         public bool BringToFront { get; set; } = true;
-        public bool AlwaysOnTop { get; set; } = true;
+        public bool AlwaysOnTop { get; set; } = false;
         public bool FlashWarning { get; set; } = true;
     }
 
