@@ -189,11 +189,6 @@ public partial class MainWindow : Window
                 ConnectionDetail.Text = "監視中にエラーが発生しました。";
             });
         }
-        finally
-        {
-            if (ReferenceEquals(_monitorCts?.Token, cancellationToken) == false)
-                return;
-        }
     }
 
     private static async Task<bool> CheckInternetAsync(CancellationToken cancellationToken)
